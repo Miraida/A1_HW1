@@ -1,6 +1,8 @@
 package com.geek.a1_hw1;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -16,6 +18,8 @@ public class Login_Activity extends AppCompatActivity {
     Button btn;
     EditText editText1;
     EditText editText2;
+    final int[] changeBtnColor = {0};
+    int btnColor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +29,8 @@ public class Login_Activity extends AppCompatActivity {
         editText2= findViewById(R.id.password);
         editText2.setTransformationMethod(new AsteriskPasswordTransformationMethod());
         final int[] countTExt = {0,0};
-        int btnColor = getResources().getColor(R.color.orange);
+
+        btnColor = getResources().getColor(R.color.orange);
         editText1.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
@@ -35,8 +40,7 @@ public class Login_Activity extends AppCompatActivity {
             }
             @Override
             public void afterTextChanged(Editable s) { }});
-        final String[] str = {""};
-        editText2.addTextChangedListener(new TextWatcher() {
+         editText2.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
             @Override
@@ -44,8 +48,14 @@ public class Login_Activity extends AppCompatActivity {
                 if (count == 1 )countTExt[0] += count;
                 if (count == 0 )countTExt[0] -= 1;
 
-                if (countTExt[0] > 5 && countTExt[1] > 5 ){  btn.setBackgroundColor(btnColor);}
-                if (countTExt[0] < 5 ){ btn.setBackgroundColor(getResources().getColor(R.color.gray)); }
+                if (countTExt[0] > 5 && countTExt[1] > 5 ){
+                    btn.setBackgroundColor(btnColor);
+                     changeBtnColor[0] = btnColor;
+                }
+                if (countTExt[0] < 5 ){
+                    btn.setBackgroundColor(getResources().getColor(R.color.gray));
+                    changeBtnColor[0] = 0;
+                }
 
             }
             @Override
@@ -55,10 +65,12 @@ public class Login_Activity extends AppCompatActivity {
     }
 
     public void sendMessage(View view){
+        if ( changeBtnColor[0]==btnColor){
         EditText editText = findViewById(R.id.emailText);
         Toast toast = Toast.makeText(this,"WELCOME "+editText.getText(),Toast.LENGTH_LONG);
         toast.setGravity(Gravity.TOP,0,160);
         toast.show();
+        }
     }
     public void forgotPassword(View view){
 
