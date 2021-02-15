@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">A1_HW1</string>
+    <string name="enter_the_password">Enter the password</string>
+    <string name="sign_in">sign in</string>
+    <string name="enter_e_mail">Enter e-mail</string>
+    <string name="sign_in_in_top">Sign In</string>
+    <string name="sign_in_button">Войти</string>
+    <string name="email_editTxt">Введите вашу почту</string>
+    <string name="password_editTxt">Введите пароль</string>
+    <string name="forgot_password">Забыл пароль?</string>
+    <string name="click_here">Нажми сюда</string>
+    <string name="text_signIn">Вход</string>
+    <string name="text_welcom">Добро пожаловать!</string>
+    <string name="in_or_up">"Выполните вход \n или зарегистрируйтесь."</string>
+</resources>
